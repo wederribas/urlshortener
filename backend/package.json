@@ -1,0 +1,12 @@
+{
+  "name": "weder-url-shortener",
+  "version": "1.0.0",
+  "description": "An awesome URL Shortener built with Express :-)",
+  "main": "index.js",
+  "repository": "https://github.com/wederribas/urlshortener",
+  "author": "Weder Ribas",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}
