@@ -1,2 +1,5 @@
 # Ignore node modules, as they are machine-specific
 node_modules/
+
+# Ignore jest globalConfig as it's generated on the fly
+globalConfig.json
