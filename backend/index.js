@@ -1,9 +1,29 @@
 const express = require('express')
+const mongoose = require('mongoose')
 const app = express()
 const port = 3000
 
-app.get('/', (req, res) => res.json({ status: 'OK' }))
+const isProduction = process.env.NODE_ENV === 'production'
 
-app.listen(port, () =>
+if (isProduction) {
+  mongoose.connect(process.env.MONGODB_URI)
+} else {
+  mongoose.connect(
+    'mongodb://localhost/urlshortener',
+    { useNewUrlParser: true }
+  )
+  mongoose.set('debug', true)
+}
+
+// Load Mongoose models
+require('./models/Url')
+require('./models/Click')
+
+// Force all responses to be in JSON format
+app.use(express.json())
+
+app.use(require('./routes'))
+
+app.listen(process.env.PORT || port, () =>
   console.log(`Server is up and listening on port ${port}`)
 )
