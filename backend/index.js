@@ -1,7 +1,8 @@
 const express = require('express')
+const cors = require('cors')
 const mongoose = require('mongoose')
 const app = express()
-const port = 3000
+const port = 5000
 
 const isProduction = process.env.NODE_ENV === 'production'
 
@@ -21,6 +22,8 @@ require('./models/Click')
 
 // Force all responses to be in JSON format
 app.use(express.json())
+
+app.use(cors())
 
 app.use(require('./routes'))
 

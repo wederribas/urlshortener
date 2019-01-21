@@ -7,6 +7,7 @@
   "author": "Weder Ribas",
   "license": "MIT",
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.16.4",
     "mongoose": "^5.4.5",
     "shortid": "^2.2.14"
